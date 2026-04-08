@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Coach Builders | Luxury Bus & Limousine Manufacturer Since 1976</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    /* ========== THEME VARIABLES ========== */
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --gold-dark: #a07830;
+      --cream: #f8f4ee;
+      --off-white: #fdfbf7;
+      --charcoal: #1a1a1a;
+      --mid: #4a4a4a;
+      --light-border: rgba(201,168,76,0.25);
+      --bg: #ffffff;
+      --bg2: #f8f4ee;
+      --text: #1a1a1a;
+      --text2: #4a4a4a;
+      --text3: #888;
+      --nav-bg: rgba(255,255,255,0.95);
+      --card-bg: #ffffff;
+      --card-shadow: 0 4px 40px rgba(0,0,0,0.08);
+      --footer-bg: #0d0d0d;
+      --footer-text: #c0b89a;
+    }
+    [data-theme="dark"] {
+      --bg: #0d0d0d;
+      --bg2: #141414;
+      --text: #f0e8d8;
+      --text2: #c0b89a;
+      --text3: #888;
+      --nav-bg: rgba(13,13,13,0.97);
+      --card-bg: #1a1a1a;
+      --card-shadow: 0 4px 40px rgba(0,0,0,0.5);
+      --light-border: rgba(201,168,76,0.2);
+      --cream: #141414;
+      --off-white: #0d0d0d;
+    }
+
+    /* ========== BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s, color 0.4s;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
+    .display-font { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; }
+    .gold { color: var(--gold); }
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    img { max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ========== NAVBAR ========== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--light-border);
+      transition: all 0.4s;
+    }
+    #navbar .navbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.85rem 2rem;
+      max-width: 1400px; margin: 0 auto;
+    }
+    .nav-brand {
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .nav-brand .brand-main {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+    .nav-brand .brand-sub {
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text2);
+      transition: color 0.25s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 1px; background: var(--gold);
+      transform: scaleX(0); transition: transform 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 1.2rem; }
+    .nav-phone {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.05em;
+    }
+    .nav-phone i { color: var(--gold); margin-right: 4px; }
+    .btn-gold {
+      background: var(--gold);
+      color: #fff !important;
+      border: none;
+      padding: 0.55rem 1.4rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    .btn-gold:hover {
+      background: var(--gold-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(201,168,76,0.35);
+    }
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold) !important;
+      border: 1px solid var(--gold);
+      padding: 0.55rem 1.4rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: #fff !important;
+    }
+    /* Theme Toggle */
+    .theme-toggle {
+      background: none; border: 1px solid var(--light-border);
+      width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--text2);
+      transition: all 0.3s; border-radius: 50%;
+    }
+    .theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      background: none; border: none;
+      color: var(--text); font-size: 1.5rem; cursor: pointer;
+    }
+    /* Mobile Nav */
+    .mobile-nav {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--bg);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      transition: color 0.25s;
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+    .mobile-nav-close {
+      position: absolute; top: 1.5rem; right: 2rem;
+      background: none; border: none;
+      color: var(--text); font-size: 2rem; cursor: pointer;
+    }
+
+    /* ========== HERO ========== */
+    #hero {
+      position: relative; width: 100%; height: 100vh;
+      overflow: hidden;
+    }
+    .hero-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity 1.2s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide video {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-slide img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0.72) 0%,
+        rgba(0,0,0,0.35) 60%,
+        rgba(0,0,0,0.5) 100%
+      );
+    }
+    .hero-content {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 0 6% 0 8%;
+      max-width: 900px;
+    }
+    .hero-year {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.92;
+      color: #fff;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+    }
+    .hero-title span { color: var(--gold); }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+      opacity: 0; animation: fadeUp 1s 0.7s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 1s 0.9s forwards;
+    }
+    /* Slide indicators */
+    .hero-indicators {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; gap: 0.6rem;
+    }
+    .hero-dot {
+      width: 28px; height: 3px;
+      background: rgba(255,255,255,0.35);
+      cursor: pointer; transition: all 0.3s;
+      border: none;
+    }
+    .hero-dot.active {
+      background: var(--gold);
+      width: 50px;
+    }
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute; bottom: 2.5rem; right: 4rem;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem; opacity: 0.7;
+    }
+    .scroll-cue span {
+      font-size: 0.6rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #fff;
+      writing-mode: vertical-rl;
+    }
+    .scroll-cue-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 1.8s infinite;
+    }
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ========== STATS BAR ========== */
+    .stats-bar {
+      background: var(--gold);
+      padding: 1.4rem 0;
+    }
+    .stats-bar .inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-around; flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0 2rem;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem; color: #fff; line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.65rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    /* ========== SECTION STYLES ========== */
+    section { padding: 6rem 0; }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-header h2 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--text);
+    }
+    .gold-line {
+      width: 60px; height: 2px;
+      background: var(--gold);
+      margin: 1.2rem 0;
+    }
+    .gold-line.center { margin: 1.2rem auto; }
+
+    /* ========== ABOUT ========== */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    }
+    .about-text .section-label { margin-bottom: 1rem; display: block; }
+    .about-text h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600; line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    .about-text p {
+      color: var(--text2); line-height: 1.85; margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+    .about-img-stack { position: relative; }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .about-img-accent {
+      position: absolute;
+      bottom: -2.5rem; right: -2.5rem;
+      width: 55%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 6px solid var(--bg2);
+      box-shadow: var(--card-shadow);
+    }
+    .cert-badges {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .cert-badge {
+      border: 1px solid var(--light-border);
+      padding: 0.7rem 1.2rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text2);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .cert-badge i { color: var(--gold); }
+
+    /* ========== VEHICLES ========== */
+    #vehicles { background: var(--bg); }
+    .vehicles-header {
+      max-width: 1200px; margin: 0 auto 3.5rem;
+      padding: 0 2rem;
+      display: flex; align-items: flex-end;
+      justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+    }
+    .vehicle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      max-width: 1400px; margin: 0 auto;
+    }
+    .vehicle-card {
+      position: relative; overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+    .vehicle-card.featured { grid-column: span 2; aspect-ratio: 16/7; }
+    .vehicle-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .vehicle-card:hover img { transform: scale(1.06); }
+    .vehicle-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 55%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.8rem;
+      transition: background 0.4s;
+    }
+    .vehicle-card:hover .vehicle-card-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.25) 100%);
+    }
+    .vehicle-card-label {
+      font-size: 0.6rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold);
+      font-weight: 600; margin-bottom: 0.4rem;
+    }
+    .vehicle-card-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem; color: #fff;
+      letter-spacing: 0.05em; line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .vehicle-card.featured .vehicle-card-name { font-size: 2.4rem; }
+    .vehicle-card-cap {
+      font-size: 0.78rem; color: rgba(255,255,255,0.7);
+    }
+    .vehicle-card-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 1rem;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0; transform: translateY(8px);
+      transition: all 0.35s;
+    }
+    .vehicle-card:hover .vehicle-card-cta { opacity: 1; transform: translateY(0); }
+
+    /* ========== FEATURES ========== */
+    #features { background: var(--charcoal); }
+    .features-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    }
+    .features-inner .section-label { margin-bottom: 1rem; display: block; }
+    .features-inner h2 {
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      color: #fff; font-weight: 600; line-height: 1.15;
+      max-width: 600px; margin-bottom: 4rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .feature-item { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.8rem; }
+    .feature-icon {
+      font-size: 1.8rem; color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .feature-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; color: #fff; font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    .feature-desc {
+      font-size: 0.85rem; color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+    }
+
+    /* ========== HERITAGE ========== */
+    #heritage { background: var(--bg2); }
+    .heritage-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    }
+    .timeline {
+      position: relative; margin-top: 3rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 1px; background: var(--light-border);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      display: flex; gap: 4rem;
+      margin-bottom: 4rem;
+      align-items: flex-start;
+    }
+    .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+    .timeline-half { flex: 1; }
+    .timeline-item:nth-child(odd) .timeline-half:first-child { text-align: right; }
+    .timeline-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem; color: var(--gold);
+      line-height: 1;
+    }
+    .timeline-title {
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--text); margin-bottom: 0.5rem;
+    }
+    .timeline-desc {
+      font-size: 0.88rem; color: var(--text2); line-height: 1.75;
+    }
+    .timeline-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--bg2);
+      position: absolute; left: 50%;
+      transform: translate(-50%, 10px);
+      box-shadow: 0 0 0 4px rgba(201,168,76,0.2);
+    }
+    .timeline-center { position: relative; display: flex; justify-content: center; }
+
+    /* ========== VIDEO SECTION ========== */
+    #promo-video {
+      position: relative; overflow: hidden;
+      height: 80vh; display: flex; align-items: center; justify-content: center;
+    }
+    #promo-video video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    #promo-video .overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    #promo-video .content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 2rem;
+    }
+    #promo-video h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: #fff; letter-spacing: 0.04em;
+      line-height: 0.9;
+      margin-bottom: 1.5rem;
+    }
+    #promo-video h2 span { color: var(--gold); }
+    .play-btn {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1.8rem;
+      cursor: pointer; transition: all 0.35s;
+      margin-bottom: 2rem;
+    }
+    .play-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: scale(1.1);
+    }
+    /* YouTube modal */
+    .yt-modal {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 2000;
+      align-items: center; justify-content: center;
+    }
+    .yt-modal.open { display: flex; }
+    .yt-modal-inner {
+      position: relative;
+      width: min(900px, 95vw);
+    }
+    .yt-modal-inner iframe {
+      width: 100%; aspect-ratio: 16/9; display: block;
+    }
+    .yt-close {
+      position: absolute; top: -3rem; right: 0;
+      background: none; border: none;
+      color: #fff; font-size: 2rem; cursor: pointer;
+    }
+
+    /* ========== TESTIMONIALS ========== */
+    #testimonials { background: var(--bg); }
+    .testi-inner {
+      max-width: 1000px; margin: 0 auto; padding: 0 2rem;
+      text-align: center;
+    }
+    .testi-carousel { position: relative; overflow: hidden; min-height: 220px; }
+    .testi-slide {
+      display: none;
+      animation: fadeIn 0.6s ease;
+    }
+    .testi-slide.active { display: block; }
+    .testi-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 2rem;
+    }
+    .testi-quote::before { content: '"'; color: var(--gold); font-size: 4rem; line-height: 0; vertical-align: -1.2rem; margin-right: 4px; }
+    .testi-author {
+      font-size: 0.75rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--text3); font-weight: 500;
+    }
+    .testi-nav { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2.5rem; }
+    .testi-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--light-border);
+      border: none; cursor: pointer; transition: all 0.3s;
+    }
+    .testi-dot.active { background: var(--gold); transform: scale(1.3); }
+
+    /* ========== CONTACT ========== */
+    #contact { background: var(--bg2); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    }
+    .contact-info .section-label { margin-bottom: 1rem; display: block; }
+    .contact-info h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600; line-height: 1.15; margin-bottom: 2rem;
+    }
+    .contact-detail {
+      display: flex; gap: 1rem; align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .contact-detail i {
+      font-size: 1.2rem; color: var(--gold);
+      margin-top: 2px; flex-shrink: 0;
+    }
+    .contact-detail p { margin: 0; }
+    .contact-detail strong {
+      display: block; font-size: 0.72rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text3); margin-bottom: 2px;
+    }
+    .contact-detail a, .contact-detail span {
+      color: var(--text); font-size: 0.95rem;
+    }
+    .contact-form .form-control, .contact-form .form-select {
+      background: var(--card-bg);
+      border: 1px solid var(--light-border);
+      border-radius: 0;
+      color: var(--text);
+      padding: 0.85rem 1.1rem;
+      font-size: 0.88rem;
+      transition: border-color 0.3s;
+    }
+    .contact-form .form-control:focus, .contact-form .form-select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+      background: var(--card-bg);
+      color: var(--text);
+    }
+    .contact-form .form-control::placeholder { color: var(--text3); }
+    .contact-form label {
+      font-size: 0.7rem; letter-spacing: 0.12em;
+      text-transform: uppercase; font-weight: 600;
+      color: var(--text2); margin-bottom: 0.4rem;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 4rem 0 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 2rem;
+    }
+    .footer-brand .brand-main {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem; color: #fff; letter-spacing: 0.08em;
+      line-height: 1; margin-bottom: 0.4rem;
+    }
+    .footer-brand .brand-sub {
+      font-size: 0.6rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .footer-brand p {
+      font-size: 0.85rem; color: rgba(255,255,255,0.45);
+      line-height: 1.75; margin: 1.2rem 0;
+    }
+    .footer-social { display: flex; gap: 0.8rem; }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); font-size: 0.9rem;
+      transition: all 0.3s; border-radius: 50%;
+    }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h5 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+      font-weight: 600; margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.65rem; }
+    .footer-col a {
+      font-size: 0.85rem; color: rgba(255,255,255,0.45);
+      transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.75rem; color: rgba(255,255,255,0.3);
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ========== FLOATING CTA ========== */
+    .float-cta {
+      position: fixed; bottom: 2rem; right: 2rem;
+      z-index: 500;
+      display: flex; flex-direction: column; gap: 0.7rem;
+      align-items: flex-end;
+    }
+    .float-btn {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.75rem 1.4rem;
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      transition: all 0.3s;
+    }
+    .float-btn:hover { transform: translateY(-2px); }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .vehicle-grid { grid-template-columns: repeat(2, 1fr); }
+      .vehicle-card.featured { grid-column: span 2; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-accent { display: none; }
+      .timeline::before { left: 1rem; }
+      .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; gap: 1rem; }
+      .timeline-dot { left: 1rem; }
+      .timeline-half { text-align: left !important; }
+      .vehicle-grid { grid-template-columns: 1fr; }
+      .vehicle-card.featured { grid-column: span 1; aspect-ratio: 4/3; }
+      .hero-content { padding: 0 5% 0 6%; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .float-cta { bottom: 1rem; right: 1rem; }
+    }
+    @media (max-width: 480px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .stats-bar .inner { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar">
+  <div class="navbar-inner">
+    <a href="#" class="nav-brand">
+      <span class="brand-main">ECB</span>
+      <span class="brand-sub">Executive Coach Builders &bull; Since 1976</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#vehicles">Vehicles</a></li>
+      <li><a href="#features">Why ECB</a></li>
+      <li><a href="#heritage">Heritage</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <span class="nav-phone d-none d-lg-flex align-items-center">
+        <i class="bi bi-telephone-fill"></i> +1-417-831-3535
+      </span>
+      <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+      </button>
+      <a href="#contact" class="btn-gold d-none d-lg-inline">Get a Quote</a>
+      <button class="nav-hamburger" id="navHamburger">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose"><i class="bi bi-x-lg"></i></button>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#vehicles" class="mobile-link">Vehicles</a>
+  <a href="#features" class="mobile-link">Why ECB</a>
+  <a href="#heritage" class="mobile-link">Heritage</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="tel:+14178313535" class="btn-gold mt-3">Call Now: +1-417-831-3535</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <!-- Slide 1: Video -->
+  <div class="hero-slide active" id="slide-0">
+    <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2c327e_a64ae8dc83a34511b9304e5e5175f086~mv2_d_3900_2700_s_4_2.jpg/v1/crop/x_0,y_603,w_3900,h_1415/fill/w_1805,h_655,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ECB%20Brochure.jpg">
+      <source src="https://video.wixstatic.com/video/2c327e_c00f12b6ccd04821b771ec0898e68c2a/1080p/mp4/file.mp4" type="video/mp4" />
+      <img src="https://static.wixstatic.com/media/2c327e_a64ae8dc83a34511b9304e5e5175f086~mv2_d_3900_2700_s_4_2.jpg/v1/crop/x_0,y_603,w_3900,h_1415/fill/w_1805,h_655,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ECB%20Brochure.jpg" alt="ECB Hero" />
+    </video>
+  </div>
+  <!-- Slide 2: Image -->
+  <div class="hero-slide" id="slide-1">
+    <img src="https://static.wixstatic.com/media/2c327e_4f987182f3e341139a902d5c9af0e7c2~mv2.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2c327e_4f987182f3e341139a902d5c9af0e7c2~mv2.jpg" alt="Supercoach XL" loading="lazy" />
+  </div>
+  <!-- Slide 3: Image -->
+  <div class="hero-slide" id="slide-2">
+    <img src="https://static.wixstatic.com/media/2c327e_8f61bccf8ecf4de9a522542ef7481c01~mv2_d_5481_3205_s_4_2.jpg/v1/crop/x_0,y_0,w_5468,h_2960/fill/w_1400,h_757,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/03-5-18-0357.jpg" alt="Luxury Coach" loading="lazy" />
+  </div>
+  <!-- Slide 4: Image -->
+  <div class="hero-slide" id="slide-3">
+    <img src="https://static.wixstatic.com/media/2c327e_c4635d22917842ad98a15b02625a3e5a~mv2_d_5481_3205_s_4_2.jpg/v1/fill/w_1400,h_818,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/_MWP7746.jpg" alt="Executive Coach" loading="lazy" />
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="hero-year">Since 1976 &bull; Springfield, Missouri &bull; Made in the USA</span>
+    <h1 class="hero-title">
+      Redefining<br>
+      <span>Luxury</span><br>
+      Transportation
+    </h1>
+    <p class="hero-sub">America's premier luxury limousine and bus manufacturer, crafting exceptional vehicles for over 45 years.</p>
+    <div class="hero-actions">
+      <a href="#vehicles" class="btn-gold">Explore Our Fleet</a>
+      <a href="#contact" class="btn-outline-gold" style="color:#fff !important; border-color:rgba(255,255,255,0.5)">Get a Custom Quote</a>
+    </div>
+  </div>
+
+  <div class="hero-indicators">
+    <button class="hero-dot active" onclick="goToSlide(0)"></button>
+    <button class="hero-dot" onclick="goToSlide(1)"></button>
+    <button class="hero-dot" onclick="goToSlide(2)"></button>
+    <button class="hero-dot" onclick="goToSlide(3)"></button>
+  </div>
+
+  <div class="scroll-cue">
+    <div class="scroll-cue-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ============ STATS BAR ============ -->
+<div class="stats-bar">
+  <div class="inner">
+    <div class="stat-item">
+      <div class="stat-num">45+</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">600+</div>
+      <div class="stat-label">Vehicles Per Year</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">25+</div>
+      <div class="stat-label">Vehicle Models</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Years Combined Staff Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">QVM</div>
+      <div class="stat-label">Ford Certified Upfitter</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <span class="section-label">Our Story</span>
+      <h2>Crafting Excellence<br>Since <em style="color:var(--gold)">1976</em></h2>
+      <div class="gold-line"></div>
+      <p>Founded in 1976 by John Bumgarner in Springfield, Missouri, Executive Coach Builders has grown from a two-model limousine specialist to America's premier luxury transportation manufacturer. Under the ownership of David Bakare since 1993, ECB has expanded to more than 25 different vehicles and custom modifications — serving clients across the United States and worldwide.</p>
+      <p>With a dedicated team whose plant managers and supervisors alone possess 200 years of combined experience, ECB has built an unwavering reputation for quality, customer service, and innovation. Every vehicle is QVM certified, made in the USA, and engineered to exceed your expectations.</p>
+      <div class="cert-badges">
+        <div class="cert-badge"><i class="bi bi-patch-check-fill"></i> QVM Certified</div>
+        <div class="cert-badge"><i class="bi bi-flag-fill"></i> Made in USA</div>
+        <div class="cert-badge"><i class="bi bi-award-fill"></i> Master Upfitter</div>
+      </div>
+    </div>
+    <div class="about-img-stack reveal" style="transition-delay:0.2s">
+      <img class="about-img-main"
+        src="https://static.wixstatic.com/media/2c327e_5fea6cd638164340aa16e69fc97c416c~mv2_d_2426_1624_s_2.jpg/v1/fill/w_600,h_401,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/2c327e_5fea6cd638164340aa16e69fc97c416c~mv2_d_2426_1624_s_2.jpg"
+        alt="ECB History" />
+      <img class="about-img-accent"
+        src="https://static.wixstatic.com/media/2c327e_07ecd3ff674e4d6f802313302bf4ca1e~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2c327e_07ecd3ff674e4d6f802313302bf4ca1e~mv2.jpg"
+        alt="Supercoach XL" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ VEHICLES ============ -->
+<section id="vehicles" style="padding:0 0 6rem">
+  <div class="vehicles-header reveal">
+    <div>
+      <span class="section-label">Our Fleet</span>
+      <h2 style="font-size:clamp(2.2rem,5vw,3.8rem); font-weight:600; color:var(--text)">The Full Lineup</h2>
+    </div>
+    <a href="https://www.ebbbus.com/used-vehicles" target="_blank" class="btn-outline-gold">View Used Inventory</a>
+  </div>
+
+  <div class="vehicle-grid">
+    <!-- Featured -->
+    <div class="vehicle-card featured reveal">
+      <img src="https://static.wixstatic.com/media/2c327e_4f987182f3e341139a902d5c9af0e7c2~mv2.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2c327e_4f987182f3e341139a902d5c9af0e7c2~mv2.jpg" alt="Supercoach XL" loading="lazy" />
+      <div class="vehicle-card-overlay">
+        <span class="vehicle-card-label">Flagship Model</span>
+        <div class="vehicle-card-name">SUPERCOACH XL</div>
+        <span class="vehicle-card-cap">Up to 57 Passengers &bull; Freightliner Platform</span>
+        <a href="https://www.ebbbus.com/the-supercoach-45" target="_blank" class="vehicle-card-cta">
+          View Details <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="vehicle-card reveal">
+      <img src="https://static.wixstatic.com/media/2c327e_a31d0a0b96b145dc8d95ca8e35fcfb82~mv2.jpeg/v1/crop/x_319,y_211,w_1630,h_864/fill/w_900,h_477,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Executive%20Coach%20Builders%20WideBody%20Passenger%20Side%20View%200472.jpeg" alt="ECoach Widebody" loading="lazy" />
+      <div class="vehicle-card-overlay">
+        <span class="vehicle-card-label">Freightliner 45ft</span>
+        <div class="vehicle-card-name">MEGACOACH WIDEBODY</div>
+        <span class="vehicle-card-cap">37–51 Passengers</span>
+        <a href="https://www.ebbbus.com/freightliner-40ft-45ft" target="_blank" class="vehicle-card-cta">
+          View Details <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="vehicle-card reveal" style="transition-delay:0.1s">
+      <img src="https://static.wixstatic.com/media/2c327e_ac99fff4fdfb409887d1236b6048d154~mv2.jpg/v1/fill/w_900,h_572,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Photoroom_20241231_154338%20(3)_JPG.jpg" alt="Sprinter Limo" loading="lazy" />
+      <div class="vehicle-card-overlay">
+        <span class="vehicle-card-label">Sprinter</span>
+        <div class="vehicle-card-name">EXECUTIVE SPRINTER</div>
+        <span class="vehicle-card-cap">Shuttle &amp; Limo Configurations</span>
+        <a href="https://www.ebbbus.com/sprinter-bus" target="_blank" class="vehicle-card-cta">
+          View Details <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="vehicle-card reveal" style="transition-delay:0.15s">
+      <img src="https://static.wixstatic.com/media/2c327e_8c469432085f4794b8b2d32fb3421752~mv2.jpg/v1/fill/w_900,h_572,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Photoroom_20250101_001217.jpg" alt="Chevy ECoach" loading="lazy" />
+      <div class="vehicle-card-overlay">
+        <span class="vehicle-card-label">Chevy Platform</span>
+        <div class="vehicle-card-name">ECOACH 38</div>
+        <span class="vehicle-card-cap">36 Passengers</span>
+        <a href="https://www.ebbbus.com/about-1" target="_blank" class="vehicle-card-cta">
+          View Details <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="vehicle-card reveal" style="transition-delay:0.2s">
+      <img src="https://static.wixstatic.com/media/2c327e_ae80ed375a5c4b9baf8743625b5dae96~mv2.jpeg/v1/fill/w_900,h_566,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Photoroom_20250103_050834.jpeg" alt="Diplomat Sprinter" loading="lazy" />
+      <div class="vehicle-card-overlay">
+        <span class="vehicle-card-label">Business Class</span>
+        <div class="vehicle-card-name">DIPLOMAT SPRINTER</div>
+        <span class="vehicle-card-cap">10–18 Passengers</span>
+        <a href="https://www.ebbbus.com/diplomat-business-lounge" target="_blank" class="vehicle-card-cta">
+          View Details <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="vehicle-card reveal" style="transition-delay:0.25s">
+      <img src="https://static.wixstatic.com/media/2c327e_c8a856fec5ce41049ec4980dd7d32f1c~mv2_d_2775_1422_s_2.jpg/v1/fill/w_900,h_461,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2c327e_c8a856fec5ce41049ec4980dd7d32f1c~mv2_d_2775_1422_s_2.jpg" alt="Diplomat SUV" loading="lazy" />
+      <div class="vehicle-card-overlay">
+        <span class="vehicle-card-label">Custom SUV</span>
+        <div class="vehicle-card-name">ESCALADE DIPLOMAT</div>
+        <span class="vehicle-card-cap">4–7 Passengers</span>
+        <a href="https://www.ebbbus.com/diplomat-suv" target="_blank" class="vehicle-card-cta">
+          View Details <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="vehicle-card reveal" style="transition-delay:0.3s">
+      <img src="https://static.wixstatic.com/media/2c327e_df5127fa090b4a48874a0cf66da3cf95~mv2_d_4985_2743_s_4_2.jpg/v1/fill/w_900,h_495,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2c327e_df5127fa090b4a48874a0cf66da3cf95~mv2_d_4985_2743_s_4_2.jpg" alt="F550 ECoach" loading="lazy" />
+      <div class="vehicle-card-overlay">
+        <span class="vehicle-card-label">Ford F550</span>
+        <div class="vehicle-card-name">F550 ECOACH 34 &amp; 37</div>
+        <span class="vehicle-card-cap">27–31 Passengers</span>
+        <a href="https://www.ebbbus.com/f550-34ft-37ft" target="_blank" class="vehicle-card-cta">
+          View Details <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="vehicle-card reveal" style="transition-delay:0.35s">
+      <img src="https://static.wixstatic.com/media/2c327e_36d7e10af421434893aa7f4ae5e96125~mv2_d_3572_1488_s_2.jpg/v1/fill/w_900,h_375,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2c327e_36d7e10af421434893aa7f4ae5e96125~mv2_d_3572_1488_s_2.jpg" alt="MKT Limo" loading="lazy" />
+      <div class="vehicle-card-overlay">
+        <span class="vehicle-card-label">Limousine</span>
+        <div class="vehicle-card-name">120" MKT LIMO</div>
+        <span class="vehicle-card-cap">8–10 Passengers</span>
+        <a href="https://www.ebbbus.com/mkt-limo" target="_blank" class="vehicle-card-cta">
+          View Details <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="vehicle-card reveal" style="transition-delay:0.4s">
+      <img src="https://static.wixstatic.com/media/2c327e_f474c5bd69944d5d833153de2ad96781~mv2.jpg/v1/fill/w_900,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/_mwp2174-edit.jpg" alt="Sprinter RV" loading="lazy" />
+      <div class="vehicle-card-overlay">
+        <span class="vehicle-card-label">Recreation</span>
+        <div class="vehicle-card-name">SPRINTER RV</div>
+        <span class="vehicle-card-cap">Custom Interior Build</span>
+        <a href="https://www.ebbbus.com/recreation-vehicle" target="_blank" class="vehicle-card-cta">
+          View Details <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="features">
+  <div class="features-inner">
+    <span class="section-label" style="color:var(--gold-light)">Why Choose ECB</span>
+    <h2>Built Different.<br>Built Better.</h2>
+    <div class="features-grid">
+      <div class="feature-item reveal">
+        <div class="feature-icon"><i class="bi bi-award"></i></div>
+        <div class="feature-title">QVM Certified Excellence</div>
+        <p class="feature-desc">Ford's Quality Vehicle Modifier certification means every build meets the highest industry standards. Our credentials speak before we do.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:0.1s">
+        <div class="feature-icon"><i class="bi bi-tools"></i></div>
+        <div class="feature-title">Custom Built for You</div>
+        <p class="feature-desc">No two builds are identical. Every vehicle is modified to fit your exact specifications, from seating configurations to bespoke interior finishes.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:0.2s">
+        <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+        <div class="feature-title">Exceptional Warranty</div>
+        <p class="feature-desc">We stand behind every vehicle with a robust warranty and aftersales service program. Your investment is protected long after delivery.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:0.3s">
+        <div class="feature-icon"><i class="bi bi-flag-fill"></i></div>
+        <div class="feature-title">Made in the USA</div>
+        <p class="feature-desc">Every vehicle is hand-crafted in our Springfield, Missouri facility. American workmanship, American pride, global quality.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:0.4s">
+        <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
+        <div class="feature-title">200 Years of Experience</div>
+        <p class="feature-desc">Our plant managers and supervisors alone possess 200 combined years of manufacturing expertise — applied to every vehicle we build.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:0.5s">
+        <div class="feature-icon"><i class="bi bi-globe-americas"></i></div>
+        <div class="feature-title">Worldwide Reach</div>
+        <p class="feature-desc">From domestic limo companies to international operators, ECB delivers luxury transportation solutions across the US and around the globe.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:0.6s">
+        <div class="feature-icon"><i class="bi bi-car-front-fill"></i></div>
+        <div class="feature-title">Multi-Brand Expertise</div>
+        <p class="feature-desc">Ford, Cadillac, Mercedes, Freightliner, Rolls-Royce, Bentley, BMW — we transform premier chassis into rolling masterpieces.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:0.7s">
+        <div class="feature-icon"><i class="bi bi-telephone-fill"></i></div>
+        <div class="feature-title">White-Glove Service</div>
+        <p class="feature-desc">From initial consultation through delivery and beyond, our team provides a concierge-level experience that matches the quality of our vehicles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEO SECTION ============ -->
+<section id="promo-video">
+  <video autoplay muted loop playsinline>
+    <source src="https://video.wixstatic.com/video/2c327e_c00f12b6ccd04821b771ec0898e68c2a/1080p/mp4/file.mp4" type="video/mp4" />
+  </video>
+  <div class="overlay"></div>
+  <div class="content">
+    <h2>The Art of<br><span>Luxury</span><br>Motion</h2>
+    <p style="color:rgba(255,255,255,0.7);font-size:1rem;margin-bottom:2rem;letter-spacing:0.1em">Watch our product showcase</p>
+    <button class="play-btn" onclick="openYT()">
+      <i class="bi bi-play-fill"></i>
+    </button>
+  </div>
+</section>
+
+<!-- YouTube Modal -->
+<div class="yt-modal" id="ytModal" onclick="closeYT(event)">
+  <div class="yt-modal-inner">
+    <button class="yt-close" onclick="closeYT()"><i class="bi bi-x-lg"></i></button>
+    <iframe id="ytFrame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- ============ HERITAGE TIMELINE ============ -->
+<section id="heritage">
+  <div class="heritage-inner">
+    <div class="text-center reveal">
+      <span class="section-label">Our Heritage</span>
+      <h2 style="font-size:clamp(2.2rem,5vw,3.8rem);font-weight:600;margin-top:0.5rem">A Legacy of Craftsmanship</h2>
+      <div class="gold-line center"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-half reveal">
+          <div class="timeline-year">1976</div>
+        </div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-half reveal" style="transition-delay:0.1s">
+          <div class="timeline-title">Founded in Springfield, MO</div>
+          <p class="timeline-desc">John Bumgarner establishes Executive Coach Builders, initially specializing in just two limousine models — laying the foundation for a dynasty of luxury vehicle manufacturing.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-half reveal" style="transition-delay:0.1s">
+          <div class="timeline-title">Roger Farris Expands Operations</div>
+          <p class="timeline-desc">New ownership drives rapid growth. ECB becomes known for distinct quality as Farris — himself a limousine consumer — brings a customer-first philosophy to manufacturing.</p>
+        </div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-half reveal">
+          <div class="timeline-year">1981</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-half reveal">
+          <div class="timeline-year">1986</div>
+        </div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-half reveal" style="transition-delay:0.1s">
+          <div class="timeline-title">400+ Limousines Annually</div>
+          <p class="timeline-desc">ECB hits a major milestone, producing over 400 limousines a year. LCT Magazine features the company, recognizing it as one of the nation's premier builders.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-half reveal" style="transition-delay:0.1s">
+          <div class="timeline-title">David Bakare Takes the Helm</div>
+          <p class="timeline-desc">Under new ownership, ECB embarks on its most ambitious era — expanding the product line, opening new markets, and establishing ECB as the definitive luxury transportation manufacturer.</p>
+        </div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-half reveal">
+          <div class="timeline-year">1993</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-half reveal">
+          <div class="timeline-year">Today</div>
+        </div>
+        <div class="timeline-center"><div class="timeline-dot"></div></div>
+        <div class="timeline-half reveal" style="transition-delay:0.1s">
+          <div class="timeline-title">600+ Vehicles &amp; 25+ Models</div>
+          <p class="timeline-desc">ECB produces over 600 vehicles per year across 25+ models, serving clients worldwide. The legacy of quality, craftsmanship, and innovation continues to define every vehicle that leaves the Springfield facility.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials">
+  <div class="testi-inner">
+    <span class="section-label">Client Voices</span>
+    <h2 style="font-size:clamp(2rem,4.5vw,3.2rem);font-weight:600;margin:0.7rem 0 3rem">What Our Clients Say</h2>
+    <div class="gold-line center" style="margin-bottom:3rem"></div>
+    <div class="testi-carousel">
+      <div class="testi-slide active">
+        <p class="testi-quote">We've been ordering from ECB for over a decade. The build quality is simply unmatched — every vehicle arrives better than the last. Their team genuinely cares about getting it right.</p>
+        <div class="testi-author">— Premium Limousine Services, Chicago, IL</div>
+      </div>
+      <div class="testi-slide">
+        <p class="testi-quote">The Supercoach XL transformed our fleet. Passengers are blown away every single time they step on board. ECB built exactly what we envisioned, on time and beyond expectations.</p>
+        <div class="testi-author">— Elite Charter Group, Dallas, TX</div>
+      </div>
+      <div class="testi-slide">
+        <p class="testi-quote">From the first call to final delivery, the ECB experience is unlike any other manufacturer. They took our custom requirements and turned them into something extraordinary.</p>
+        <div class="testi-author">— Prestige Transport Co., Los Angeles, CA</div>
+      </div>
+      <div class="testi-slide">
+        <p class="testi-quote">The Diplomat Sprinter is our most profitable and most admired vehicle. Our clients request it by name. ECB's craftsmanship makes us look world-class to our customers.</p>
+        <div class="testi-author">— Black Car Network, New York, NY</div>
+      </div>
+    </div>
+    <div class="testi-nav">
+      <button class="testi-dot active" onclick="goToTesti(0)"></button>
+      <button class="testi-dot" onclick="goToTesti(1)"></button>
+      <button class="testi-dot" onclick="goToTesti(2)"></button>
+      <button class="testi-dot" onclick="goToTesti(3)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <span class="section-label">Get in Touch</span>
+      <h2>Let's Build<br>Your Next Vehicle</h2>
+      <div class="gold-line"></div>
+      <p style="color:var(--text2);line-height:1.85;margin-bottom:2.5rem;font-size:0.95rem">
+        Whether you're looking for a single custom coach or a complete fleet renewal, our team is ready to bring your vision to life. Schedule a factory visit or speak with a representative today.
+      </p>
+      <div class="contact-detail">
+        <i class="bi bi-telephone-fill"></i>
+        <p>
+          <strong>Phone</strong>
+          <a href="tel:+14178313535">+1-417-831-3535</a>
+        </p>
+      </div>
+      <div class="contact-detail">
+        <i class="bi bi-envelope-fill"></i>
+        <p>
+          <strong>Email</strong>
+          <a href="mailto:Sales@ecblimo.com">Sales@ecblimo.com</a>
+        </p>
+      </div>
+      <div class="contact-detail">
+        <i class="bi bi-geo-alt-fill"></i>
+        <p>
+          <strong>Location</strong>
+          <span>Springfield, Missouri, USA</span>
+        </p>
+      </div>
+      <div class="contact-detail">
+        <i class="bi bi-clock-fill"></i>
+        <p>
+          <strong>Business Hours</strong>
+          <span>Monday – Friday, 8:00 AM – 5:00 PM CST</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-form reveal" style="transition-delay:0.2s">
+      <form onsubmit="handleSubmit(event)">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label>First Name</label>
+            <input type="text" class="form-control" placeholder="John" required />
+          </div>
+          <div class="col-md-6">
+            <label>Last Name</label>
+            <input type="text" class="form-control" placeholder="Smith" required />
+          </div>
+          <div class="col-12">
+            <label>Email Address</label>
+            <input type="email" class="form-control" placeholder="john@company.com" required />
+          </div>
+          <div class="col-12">
+            <label>Phone Number</label>
+            <input type="tel" class="form-control" placeholder="+1 (555) 000-0000" />
+          </div>
+          <div class="col-12">
+            <label>Vehicle Interest</label>
+            <select class="form-select">
+              <option value="">Select a model...</option>
+              <option>Supercoach XL (57 Pass.)</option>
+              <option>MegaCoach Widebody (37–51 Pass.)</option>
+              <option>F550 ECoach 34 &amp; 37 (27–31 Pass.)</option>
+              <option>Chevy ECoach 38 (36 Pass.)</option>
+              <option>E450 ECoach 28 (19–23 Pass.)</option>
+              <option>Executive Sprinter Shuttle &amp; Limo</option>
+              <option>Diplomat Sprinter (10–18 Pass.)</option>
+              <option>Escalade Diplomat (4–7 Pass.)</option>
+              <option>Stretch Escalade Diplomat (6–8 Pass.)</option>
+              <option>120" MKT Limo (8–10 Pass.)</option>
+              <option>Sprinter RV</option>
+              <option>Custom Build</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label>Message</label>
+            <textarea class="form-control" rows="4" placeholder="Tell us about your project, timeline, or any custom requirements..."></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn-gold w-100 py-3" style="font-size:0.8rem;letter-spacing:0.2em">
+              Send Inquiry <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      <div id="formSuccess" style="display:none; text-align:center; padding:3rem 0;">
+        <i class="bi bi-check-circle-fill" style="font-size:3rem;color:var(--gold);"></i>
+        <h3 style="margin-top:1rem;font-size:1.8rem;">Message Sent!</h3>
+        <p style="color:var(--text2);margin-top:0.5rem;">Our team will be in touch within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-main">Executive Coach Builders</div>
+        <div class="brand-sub">Redefining Luxury Transportation Since 1976</div>
+        <p>America's premier luxury limousine and bus manufacturer, hand-crafting exceptional vehicles in Springfield, Missouri for clients worldwide.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/ExecutiveCoachBuilders/" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://twitter.com/coach_builders" target="_blank"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.youtube.com/@ECBLIMOTV" target="_blank"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Fleet</h5>
+        <ul>
+          <li><a href="https://www.ebbbus.com/the-supercoach-45" target="_blank">Supercoach XL</a></li>
+          <li><a href="https://www.ebbbus.com/freightliner-40ft-45ft" target="_blank">MegaCoach Widebody</a></li>
+          <li><a href="https://www.ebbbus.com/f550-34ft-37ft" target="_blank">F550 ECoach</a></li>
+          <li><a href="https://www.ebbbus.com/about-1" target="_blank">Chevy ECoach 38</a></li>
+          <li><a href="https://www.ebbbus.com/sprinter-bus" target="_blank">Sprinter Limo &amp; Shuttle</a></li>
+          <li><a href="https://www.ebbbus.com/diplomat-business-lounge" target="_blank">Diplomat Sprinter</a></li>
+          <li><a href="https://www.ebbbus.com/diplomat-suv" target="_blank">Escalade Diplomat</a></li>
+          <li><a href="https://www.ebbbus.com/used-vehicles" target="_blank">Used Inventory</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="https://www.ebbbus.com/about-us" target="_blank">About Us</a></li>
+          <li><a href="https://www.ebbbus.com/blog-1" target="_blank">Blog</a></li>
+          <li><a href="https://www.ebbbus.com/additional-builds" target="_blank">Contact</a></li>
+          <li><a href="https://www.youtube.com/@ECBLIMOTV" target="_blank">Video Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+14178313535">+1-417-831-3535</a></li>
+          <li><a href="mailto:Sales@ecblimo.com">Sales@ecblimo.com</a></li>
+          <li><span style="color:rgba(255,255,255,0.45);font-size:0.85rem">Springfield, Missouri<br>United States</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2025 Executive Coach Builders. All rights reserved.</span>
+      <span>QVM Certified &bull; Made in the USA &bull; Master Upfitter</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating CTA -->
+<div class="float-cta">
+  <a href="tel:+14178313535" class="float-btn btn-gold">
+    <i class="bi bi-telephone-fill"></i> Call Now
+  </a>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // ======== DARK MODE TOGGLE ========
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const html = document.documentElement;
+  themeToggle.addEventListener('click', () => {
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    themeIcon.className = isDark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+  });
+
+  // ======== MOBILE NAV ========
+  const hamburger = document.getElementById('navHamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+  mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  document.querySelectorAll('.mobile-link').forEach(l => {
+    l.addEventListener('click', () => mobileNav.classList.remove('open'));
+  });
+
+  // ======== HERO SLIDER ========
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  let currentSlide = 0;
+  let slideInterval;
+
+  function goToSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = n;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    // If slide 0, play its video
+    const vid = slides[0].querySelector('video');
+    if (n === 0 && vid) vid.play();
+  }
+
+  function nextSlide() {
+    goToSlide((currentSlide + 1) % slides.length);
+  }
+
+  slideInterval = setInterval(nextSlide, 6000);
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      goToSlide(i);
+      slideInterval = setInterval(nextSlide, 6000);
+    });
+  });
+
+  // ======== YOUTUBE MODAL ========
+  function openYT() {
+    document.getElementById('ytFrame').src = 'https://www.youtube.com/embed/3aQlLEe3cH4?autoplay=1';
+    document.getElementById('ytModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeYT(e) {
+    if (!e || e.target === document.getElementById('ytModal') || e.currentTarget === document.querySelector('.yt-close')) {
+      document.getElementById('ytFrame').src = '';
+      document.getElementById('ytModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // ======== TESTIMONIAL CAROUSEL ========
+  const testiSlides = document.querySelectorAll('.testi-slide');
+  const testiDots = document.querySelectorAll('.testi-dot');
+  let currentTesti = 0;
+  function goToTesti(n) {
+    testiSlides[currentTesti].classList.remove('active');
+    testiDots[currentTesti].classList.remove('active');
+    currentTesti = n;
+    testiSlides[currentTesti].classList.add('active');
+    testiDots[currentTesti].classList.add('active');
+  }
+  setInterval(() => goToTesti((currentTesti + 1) % testiSlides.length), 5000);
+
+  // ======== SCROLL REVEAL ========
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // ======== NAVBAR SCROLL STYLE ========
+  window.addEventListener('scroll', () => {
+    const nb = document.getElementById('navbar');
+    if (window.scrollY > 60) {
+      nb.style.boxShadow = '0 4px 30px rgba(0,0,0,0.12)';
+    } else {
+      nb.style.boxShadow = 'none';
+    }
+  });
+
+  // ======== FORM SUBMIT ========
+  function handleSubmit(e) {
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
