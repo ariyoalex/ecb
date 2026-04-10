@@ -9,6 +9,21 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Executive Coach Builders: America's premier luxury bus and limousine manufacturer. Hand-crafting exceptional executive motorcoaches and sprinter vans since 1976.">
+  <meta name="keywords" content="Luxury Buses, Limousines, Executive Motorcoaches, Sprinter Vans, Custom Vehicles, ECB, Springfield Missouri">
+  <link rel="shortcut icon" href="logo.png" type="image/png">
+  
+  <meta property="og:title" content="Executive Coach Builders | Hand-Crafted Luxury Vehicles">
+  <meta property="og:description" content="Redefining luxury travel since 1976. Explore our fleet of bespoke executive coaches and premium sprinter vans.">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:type" content="website">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Executive Coach Builders | Luxury Vehicle Manufacturer">
+  <meta name="twitter:description" content="America's premier custom coach builder. Precision engineering meets bespoke luxury.">
+  <meta name="twitter:image" content="logo.png">
+
   <style>
     /* ========== THEME VARIABLES ========== */
     :root {
@@ -841,9 +856,8 @@
 <!-- ============ NAVBAR ============ -->
 <nav id="navbar">
   <div class="navbar-inner">
-    <a href="#" class="nav-brand">
-      <span class="brand-main">ECB</span>
-      <span class="brand-sub">Executive Coach Builders &bull; Since 1976</span>
+    <a href="#" class="nav-logo-brand">
+      <img src="logo.png" alt="ECB Logo" style="height: 55px; width: auto;" />
     </a>
 
     <ul class="nav-links">
@@ -1150,7 +1164,7 @@
 <!-- ============ VIDEO SECTION ============ -->
 <section id="promo-video">
   <video autoplay muted loop playsinline>
-    <source src="https://video.wixstatic.com/video/2c327e_c00f12b6ccd04821b771ec0898e68c2a/1080p/mp4/file.mp4" type="video/mp4" />
+    <source src="footer_video.mp4" type="video/mp4" />
   </video>
   <div class="overlay"></div>
   <div class="content">
@@ -1352,13 +1366,9 @@
   <div class="footer-inner">
     <div class="footer-grid-main">
       <div class="footer-brand-section">
-        <div class="nav-logo-brand mb-3">
-          <img src="logo.png" alt="ECB Logo" />
-          <div class="nav-brand">
-            <span class="brand-main" style="color:#fff">ECB</span>
-            <span class="brand-sub" style="color:var(--slate-light)">Est. 1976</span>
-          </div>
-        </div>
+        <a href="#" class="mb-4 d-block">
+          <img src="logo.png" alt="ECB Logo" style="height: 65px; width: auto;" />
+        </a>
         <p style="color:var(--slate-light); font-size:0.9rem; line-height:1.6; max-width:320px;">
           America's premier luxury limousine and bus manufacturer, hand-crafting exceptional vehicles for clients worldwide.
         </p>
@@ -1414,7 +1424,9 @@
   <div class="anniv-modal-content">
     <button class="anniv-close" onclick="closeAnniv()"><i class="bi bi-x-lg"></i></button>
     <div class="modal-body text-center">
-      <div class="badge-ring mb-4 mx-auto">50</div>
+      <div class="badge-ring-logo mb-4 mx-auto">
+        <img src="logo.png" alt="ECB Anniversary Logo" style="width: 80%; height: auto;" />
+      </div>
       <h2 class="mb-3">Celebrating 50 Years</h2>
       <p class="mb-4 text-muted">Half a century of redefining luxury transportation. Watch our anniversary film below.</p>
       <div class="video-container">
@@ -1466,11 +1478,11 @@
     padding: 3rem; border-radius: 12px; position: relative;
     box-shadow: 0 30px 100px rgba(0,0,0,0.5);
   }
-  .anniv-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-  .badge-ring {
-    width: 80px; height: 80px; border: 4px solid var(--slate-dark);
+  .anniv-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; z-index: 10; }
+  .badge-ring-logo {
+    width: 100px; height: 100px; border: 2px solid var(--slate-mid);
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; font-weight: 900;
+    background: #fff; padding: 10px;
   }
   .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
   .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
