@@ -23,6 +23,7 @@
   <meta name="twitter:title" content="Executive Coach Builders | Luxury Vehicle Manufacturer">
   <meta name="twitter:description" content="America's premier custom coach builder. Precision engineering meets bespoke luxury.">
   <meta name="twitter:image" content="logo.png">
+  <meta name="theme-color" content="#C9A84C">
 
   <style>
     /* ========== THEME VARIABLES ========== */
@@ -857,7 +858,7 @@
 <nav id="navbar">
   <div class="navbar-inner">
     <a href="#" class="nav-logo-brand">
-      <img src="logo.png" alt="ECB Logo" style="height: 55px; width: auto;" />
+      <img src="logo.png" alt="ECB Logo" style="height: 80px; width: auto;" />
     </a>
 
     <ul class="nav-links">
@@ -900,9 +901,8 @@
     <div class="hero-grid">
       <!-- Left Column: Captions -->
       <div class="hero-captions">
-        <div class="hero-anniversary">
-          <div class="badge-50">50th</div>
-          <span>Anniversary (1976 - 2026)</span>
+        <div class="mb-4">
+          <img src="logo.png" alt="ECB Logo" style="height: 70px; width: auto; opacity: 0.9;" />
         </div>
         <h1 class="hero-title">
           The Art of<br>
@@ -1170,7 +1170,7 @@
   <div class="content">
     <h2>The Art of<br><span>Luxury</span><br>Motion</h2>
     <p style="color:rgba(255,255,255,0.7);font-size:1rem;margin-bottom:2rem;letter-spacing:0.1em">Watch our product showcase</p>
-    <button class="play-btn" onclick="openYT()">
+    <button class="play-btn" onclick="openShowcase()">
       <i class="bi bi-play-fill"></i>
     </button>
   </div>
@@ -1424,14 +1424,30 @@
   <div class="anniv-modal-content">
     <button class="anniv-close" onclick="closeAnniv()"><i class="bi bi-x-lg"></i></button>
     <div class="modal-body text-center">
-      <div class="badge-ring-logo mb-4 mx-auto">
-        <img src="logo.png" alt="ECB Anniversary Logo" style="width: 80%; height: auto;" />
+      <div class="mb-4 mx-auto" style="max-width: 180px;">
+        <img src="logo.png" alt="ECB Anniversary Logo" style="width: 100%; height: auto;" />
       </div>
       <h2 class="mb-3">Celebrating 50 Years</h2>
       <p class="mb-4 text-muted">Half a century of redefining luxury transportation. Watch our anniversary film below.</p>
       <div class="video-container">
         <video id="annivVideo" controls playsinline style="width:100%; border-radius:8px;">
           <source src="anniversary_video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Showcase Modal -->
+<div id="showcaseModal" class="anniv-modal">
+  <div class="anniv-modal-content">
+    <button class="anniv-close" onclick="closeShowcase()"><i class="bi bi-x-lg"></i></button>
+    <div class="modal-body text-center">
+      <h2 class="mb-4">Luxury in Motion</h2>
+      <div class="video-container">
+        <video id="showcaseVideo" controls playsinline style="width:100%; border-radius:8px;">
+          <source src="footer_video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -1554,6 +1570,26 @@
     }
     const annivModal = document.getElementById('annivModal');
     if(annivModal) annivModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ======== SHOWCASE MODAL ========
+  function openShowcase() {
+    const sVideo = document.getElementById('showcaseVideo');
+    if(sVideo) {
+      sVideo.currentTime = 0;
+      sVideo.play();
+    }
+    const sModal = document.getElementById('showcaseModal');
+    if(sModal) sModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeShowcase() {
+    const sVideo = document.getElementById('showcaseVideo');
+    if(sVideo) sVideo.pause();
+    const sModal = document.getElementById('showcaseModal');
+    if(sModal) sModal.classList.remove('open');
     document.body.style.overflow = '';
   }
 
